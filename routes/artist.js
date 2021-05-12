@@ -4,6 +4,7 @@ const ArtistModel = require("./../model/Artist");
 const uploader = require("./../config/cloudinary");
 const protectAdminRoute = require("./../middlewares/protectAdminRoute");
 const StyleModel = require("./../model/Style");
+const protectRoute = require("./../middlewares/protectRoute")
 
 // router.use(protectAdminRoute);
 
@@ -17,7 +18,8 @@ router.get("/", async (req, res, next) => {
 });
 
 // GET - create one artist (form)
-router.get("/create", async (req, res, next) => {
+// ----------- you have to be sign in to add artist ------------------------ //
+router.get("/create", protectRoute, (req, res, next) => {
   StyleModel.find()
     .then((styles) => {
       res.render("dashboard/artistCreate", { styles });

@@ -54,6 +54,8 @@ const artistRouter = require("./routes/artist");
 const albumRouter = require("./routes/album");
 const labelRouter = require("./routes/label");
 const styleRouter = require("./routes/style");
+// ----------- declaration of the router for authentification -------------- //
+const authRouter = require("./routes/auth");
 
 
 // use routers
@@ -62,6 +64,8 @@ app.use("/dashboard/artist", artistRouter); // use artist router
 app.use("/dashboard/album", albumRouter); // use album router
 app.use("/dashboard/label", labelRouter); // use label router
 app.use("/dashboard/style", styleRouter); // use style router
+// --- creating the route for authentification and (/auth) will be use for this scpecific path ------------- //
+app.use("/auth", authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

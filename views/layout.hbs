@@ -9,33 +9,28 @@
 </head>
 
 <body>
-  {{!-- <header id="header-main">
-    <span id="logo-main">
-      <a href="/">Artistify</a>
-    </span>
-    <nav>
-      <a href="/" class="link">home</a> |
-      <a href="/all-albums" class="link">all albums</a>
-      {{#unless isLoggedIn}}
-      <a href="/auth/signin" class="link">| <i class="fa fa-user fa-1x"></i></a>
-      {{/unless}}
-      {{#if isLoggedIn}}
-      <a class="link" href="/dashboard">| <i class="fa fa-user fa-1x"></i></a>
-      <a class="link" href="/auth/signout">signout</a>
-      {{/if}}
-    </nav>
-  </header> --}}
+
 
   <header id="header-main">
     <span id="logo-main">
       <a href="/">Artistify</a>
     </span>
     <nav>
-      <a href="/" class="link">home</a> |
-      <a href="/artist" class="link">artists</a> |
-      <a href="/album" class="link">albums</a> |
-      <a href="/dashboard" class="link"><i class="fa fa-user fa-1x"></i></a>
-    </nav>
+    <a href="/" class="link">home</a> |
+    <a href="/artist" class="link">artists</a> |
+    <a href="/album" class="link">albums</a> |
+    <a href="/dashboard" class="link"><i class="fa fa-user fa-1x"></i></a>
+    {{#unless currentUser}}
+    <a href="/auth/signup">signup</a>
+    <span>|</span>
+    <a href="/auth/signin">signin</a>
+    <span>|</span>
+    {{else}}
+    <a href="/profile">profile</a>
+    <span>|</span>
+    <a href="/auth/signout">signout</a>
+    {{/unless}}
+    </nav> 
   </header>
 
 {{!-- 
